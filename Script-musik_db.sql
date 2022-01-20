@@ -20,8 +20,5 @@ create table if not exists tracks (
 	id serial primary key,
 	name varchar(150) not null unique,
 	album_id integer references albums(id),
-	track_length numeric(100) check(track_length > 0)
+	track_length numeric(10) check(track_length > 0)
 );
-
-alter table tracks 
-	alter column track_length set data type numeric(10);
