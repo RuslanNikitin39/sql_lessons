@@ -33,7 +33,7 @@ create table if not exists tracks (
 	track_length numeric(10) check(track_length > 0)
 );
 
-create table if not exists music_collection (
+create table if not exists music_collections (
 	id serial primary key,
 	name varchar(150) not null unique,
 	release_year integer not null
@@ -41,6 +41,6 @@ create table if not exists music_collection (
 
 create table if not exists CollectionTracks (
 	id serial primary key,
-	collection_id integer references music_collection(id),
+	collection_id integer references music_collections(id),
 	track_id integer references tracks(id)
 );
